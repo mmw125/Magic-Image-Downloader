@@ -19,10 +19,9 @@ public class ImageDownloader implements Runnable{
 	}
 	
 	private void downloadFile() throws Exception{
-		URL url = new URL("http://mtgimage.com/multiverseid/" + id + ".jpg");
+		URL url = new URL("http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=" + id + "&type=card");
 		file.createNewFile();
 		BufferedImage image = ImageIO.read(url);
-//		image = image.getSubimage(7, 7, image.getWidth() - 14, image.getHeight() - 15);
 		ImageIO.write(image, extension.substring(1), file);
 	}
 
